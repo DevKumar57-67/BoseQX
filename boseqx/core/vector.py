@@ -52,6 +52,24 @@ class Vector:
             raise ValueError("Cannot normalize the zero vector.")
 
         return self * (1 / magnitude)
+    
+
+    def inner(self, other):
+        """Return the complex inner product <self|other>."""
+        if len(self) != len(other):
+            raise ValueError("Vectors must have the same dimension.")
+
+        return sum(
+        a.conjugate() * b
+        for a, b in zip(self._values, other._values)
+    )
+
+    def conjugate(self):
+        """Return the component-wise complex conjugate."""
+        return Vector(
+        value.conjugate()
+        for value in self._values
+    )
 
     def __repr__(self):
         return f"Vector({self._values})"
