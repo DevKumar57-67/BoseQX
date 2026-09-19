@@ -5,6 +5,7 @@ boseqx/__init__.py
 boseqx.egg-info/PKG-INFO
 boseqx.egg-info/SOURCES.txt
 boseqx.egg-info/dependency_links.txt
+boseqx.egg-info/requires.txt
 boseqx.egg-info/top_level.txt
 boseqx/algorithms/__init__.py
 boseqx/core/__init__.py

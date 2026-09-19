@@ -1,5 +1,440 @@
 Metadata-Version: 2.4
 Name: boseqx
-Version: 0.0.0
+Version: 0.1.0
+Summary: A Python-native mathematical framework for quantum mathematics.
+Author: Dev Kumar
+License: MIT
+Requires-Python: >=3.10
+Description-Content-Type: text/markdown
 License-File: LICENSE
+Requires-Dist: numpy
+Requires-Dist: sympy
+Provides-Extra: dev
+Requires-Dist: pytest; extra == "dev"
 Dynamic: license-file
+
+# BoseQX
+
+### Quantum Mathematics for Python
+
+BoseQX is an open-source, Python-native library for **expressing, manipulating, visualizing, and learning quantum mathematics**.
+
+The project focuses on building quantum computing foundations from the mathematics upward — starting with vectors, inner products, complex numbers, bras and kets, and gradually expanding toward quantum states, operators, gates, circuits, algorithms, and simulation.
+
+> **Mathematics first. Quantum computing second.**
+
+---
+
+## Why BoseQX?
+
+Quantum computing libraries often focus primarily on building and executing circuits.
+
+BoseQX takes a different approach.
+
+The goal is to make the **mathematics behind quantum computing explicit, accessible, and programmable**.
+
+For example:
+
+$$
+|\psi\rangle =
+\alpha|0\rangle + \beta|1\rangle
+$$
+
+should not just be something a framework accepts as input. It should be something developers can **represent, manipulate, inspect, and understand directly in Python**.
+
+---
+
+## 🧑‍🔬 Inspiration — Satyendra Nath Bose
+
+BoseQX is inspired by the legacy of **Satyendra Nath Bose**, the pioneering Indian physicist whose work laid the foundation for Bose–Einstein statistics and whose name lives on in the class of particles known as **bosons**.
+
+Bose's work demonstrated the power of approaching fundamental physics through deep mathematical insight. His collaboration with Albert Einstein helped establish what became known as **Bose–Einstein statistics**, a fundamental idea in quantum physics.
+
+The name **BoseQX** is a tribute to that legacy:
+
+> **Bose — in honor of Satyendra Nath Bose**
+> **QX — Quantum eXploration through mathematics and code**
+
+BoseQX aims to carry forward the spirit of curiosity, mathematical thinking, and exploration that characterized Bose's contributions to modern physics.
+
+---
+
+## Current Status
+
+**Version:** `0.1.0`
+**Status:** Early development 🚧
+
+The current foundation includes:
+
+* Mathematical vectors
+* Vector addition and subtraction
+* Scalar multiplication
+* Vector norms and normalization
+* Complex-valued vectors
+* Complex conjugation
+* Inner products
+* Basic Ket and Bra representations
+
+More quantum functionality is being developed incrementally.
+
+---
+
+## Project Vision
+
+BoseQX aims to evolve into a mathematical toolkit covering areas such as:
+
+```text
+BoseQX
+│
+├── Core Mathematics
+│   ├── Vectors
+│   ├── Matrices
+│   ├── Tensors
+│   └── Linear Algebra
+│
+├── Quantum Mathematics
+│   ├── Kets
+│   ├── Bras
+│   ├── Quantum States
+│   ├── Density Matrices
+│   ├── Observables
+│   └── Measurement
+│
+├── Quantum Operations
+│   ├── Quantum Gates
+│   ├── Multi-Qubit Operations
+│   ├── Operators
+│   └── Circuits
+│
+├── Symbolic Mathematics
+│   └── SymPy Integration
+│
+├── Algorithms
+│   └── Quantum Algorithms
+│
+├── Visualization
+│   └── Quantum Mathematics & Circuits
+│
+└── Backends
+    ├── NumPy
+    ├── GPU Computing
+    └── Future Hardware Backends
+```
+
+---
+
+## Installation
+
+Clone the repository:
+
+```bash
+git clone https://github.com/DevKumar57-67/BoseQX.git
+cd BoseQX
+```
+
+Create a virtual environment:
+
+### Windows
+
+```powershell
+python -m venv .venv
+.venv\Scripts\activate
+```
+
+### Linux / macOS
+
+```bash
+python3 -m venv .venv
+source .venv/bin/activate
+```
+
+Install the project dependencies:
+
+```bash
+pip install numpy sympy
+```
+
+For development and testing:
+
+```bash
+pip install pytest
+```
+
+---
+
+## Basic Usage
+
+### Vectors
+
+```python
+from boseqx import Vector
+
+v = Vector([3, 4])
+
+print(v.norm())
+```
+
+Output:
+
+```text
+5.0
+```
+
+### Vector Operations
+
+```python
+from boseqx import Vector
+
+a = Vector([1, 2, 3])
+b = Vector([4, 5, 6])
+
+print(a + b)
+print(a - b)
+print(2 * a)
+```
+
+### Complex Vectors
+
+BoseQX is designed to support complex-valued mathematics required in quantum mechanics.
+
+```python
+from boseqx import Vector
+
+v = Vector([1 + 2j, 3 - 4j])
+
+print(v.norm())
+print(v.conjugate())
+```
+
+### Inner Product
+
+```python
+from boseqx import Vector
+
+u = Vector([1 + 1j, 2])
+v = Vector([1, 1j])
+
+print(u.inner(v))
+```
+
+The inner product follows:
+
+$$
+\langle u|v\rangle
+=
+\sum_i u_i^*v_i
+$$
+
+---
+
+## Quantum Mathematics
+
+BoseQX represents quantum notation directly through Python abstractions.
+
+For example:
+
+```python
+from boseqx.quantum import Ket
+
+psi = Ket([1 / 2**0.5, 1 / 2**0.5])
+
+print(psi)
+print(psi.bra())
+```
+
+Conceptually:
+
+$$
+|\psi\rangle
+=
+\frac{1}{\sqrt{2}}|0\rangle
++
+\frac{1}{\sqrt{2}}|1\rangle
+$$
+
+The long-term objective is to make expressions such as quantum states, operators, measurements, tensor products, and observables natural to work with in Python.
+
+---
+
+## Development Philosophy
+
+BoseQX is being developed incrementally rather than as a large abstraction layer from the beginning.
+
+The development workflow is:
+
+```text
+Mathematical Concept
+        ↓
+Mathematical Definition
+        ↓
+API Design
+        ↓
+Implementation
+        ↓
+User Testing
+        ↓
+Automated Tests
+        ↓
+Documentation
+```
+
+This keeps the mathematical model and software design closely connected.
+
+---
+
+## Roadmap
+
+### Phase 1 — Mathematical Foundation
+
+* [x] Vector representation
+* [x] Vector arithmetic
+* [x] Norm
+* [x] Normalization
+* [x] Complex numbers
+* [x] Complex conjugation
+* [x] Inner product
+* [x] Ket
+* [x] Bra
+
+### Phase 2 — Quantum States
+
+* [ ] `QuantumState`
+* [ ] Computational basis states
+* [ ] State normalization
+* [ ] Measurement
+* [ ] Probability amplitudes
+* [ ] Expectation values
+
+### Phase 3 — Quantum Operations
+
+* [ ] Matrix framework
+* [ ] Quantum operators
+* [ ] Pauli-X, Y, Z
+* [ ] Hadamard
+* [ ] CNOT
+* [ ] Tensor products
+* [ ] Multi-qubit states
+
+### Phase 4 — Advanced Mathematics
+
+* [ ] Density matrices
+* [ ] Partial trace
+* [ ] Hermitian operators
+* [ ] Eigenvalues and eigenvectors
+* [ ] Symbolic quantum mathematics
+* [ ] Advanced linear algebra
+
+### Phase 5 — Quantum Computing
+
+* [ ] Quantum circuits
+* [ ] Quantum algorithms
+* [ ] Circuit simulation
+* [ ] Visualization
+* [ ] Performance optimization
+* [ ] Future external/hardware backends
+
+---
+
+## Testing
+
+Run the test suite from the repository root:
+
+```bash
+python -m pytest
+```
+
+BoseQX aims to maintain mathematical correctness through automated tests as the project grows.
+
+---
+
+## Project Structure
+
+```text
+BoseQX/
+│
+├── boseqx/
+│   ├── core/
+│   │   ├── vector.py
+│   │   ├── matrix.py
+│   │   └── tensor.py
+│   │
+│   ├── quantum/
+│   │   ├── ket.py
+│   │   ├── bra.py
+│   │   ├── state.py
+│   │   ├── operator.py
+│   │   └── measurement.py
+│   │
+│   ├── gates/
+│   ├── algorithms/
+│   ├── symbolic/
+│   └── visualization/
+│
+├── tests/
+├── examples/
+├── docs/
+├── README.md
+├── LICENSE
+├── pyproject.toml
+└── requirements-dev.txt
+```
+
+---
+
+## Contributing
+
+BoseQX is being built as an open-source learning and engineering project.
+
+Contributions are welcome in areas including:
+
+* Mathematics
+* Quantum computing
+* Python development
+* Testing
+* Documentation
+* Algorithms
+* Performance
+* Visualization
+* Bug fixes and improvements
+
+Before contributing, please check the repository issues and contribution guidelines.
+
+---
+
+## License
+
+BoseQX is released under the **MIT License**.
+
+See [`LICENSE`](LICENSE) for details.
+
+---
+
+## Author
+
+**Dev Kumar**
+
+B.Tech CSE Student • AI & Cybersecurity Builder • Open Source Learner
+
+GitHub:   [@DevKumar57-67](https://github.com/DevKumar57-67)
+Linkedin: [@Dev Kumar](www.linkedin.com/in/dev-kumar369)
+X handle: [@DevKumar]
+
+---
+
+## ⭐ Vision
+
+BoseQX is more than a quantum simulator.
+
+The long-term goal is to build a **mathematical ecosystem for quantum computing in Python** where the mathematics remains visible, understandable, and programmable.
+
+> **Understand the mathematics. Express it in code. Build quantum systems from first principles.**
+
+---
+
+### 🧑‍🔬 In memory of Satyendra Nath Bose
+
+> *Inspired by the physicist whose mathematical ideas helped shape our understanding of the quantum world.*
+
+**BoseQX** is a small contribution to the continued exploration of the mathematical foundations of quantum science.
+
+A tribute of India's contribution to the world of Quantum Physics 
