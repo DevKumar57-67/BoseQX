@@ -423,3 +423,28 @@ The long-term goal is to build a **mathematical ecosystem for quantum computing 
 **BoseQX** is a small contribution to the continued exploration of the mathematical foundations of quantum science.
 
 A tribute of India's contribution to the world of Quantum Physics 
+
+### Installation Process  
+
+🚀 Installation
+
+BoseQX is available on PyPI.
+
+Install with pip
+
+pip install boseqx
+
+Upgrade to the latest version
+
+pip install --upgrade boseqx
+
+After installation, verify it:
+
+import boseqx
+
+print(boseqx.__version__)
+
+Current version:
+
+0.1.0
+
